@@ -31,6 +31,9 @@ def score_results():
             winner = score.find('p',class_='ds-text-tight-s ds-font-regular ds-truncate ds-text-typo-title').span.text
             team_1 = twoteams[0]
             team_2 = twoteams[1]
+            match_date = descp.text.split(',')[0]
+            location = descp.text.split(',')[1]
+
             info_scores={
                 "Match Type" : descp.a.span.text,
                 "Match_Result": winner,
@@ -39,11 +42,13 @@ def score_results():
             }
             arr_score.append({
                 "Match Type" : descp.a.span.text,
+                "Match_Date" : match_date,
+                "Match_Location" : location,
                 "Match_Result": winner,
                 "team_1":team_1.text,
                 "team_2":team_2.text,
                 "team1_score":score_1,
-                "team2_score":score_2
+                "team2_score":score_2,
             })
     return {"data":arr_score}
     
