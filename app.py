@@ -50,7 +50,7 @@ def score_results():
                 "team1_score":score_1,
                 "team2_score":score_2,
             })
-    return {"data":arr_score}
+    return {"IPL_data":arr_score}
     
             
 
